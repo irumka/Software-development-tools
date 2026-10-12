@@ -22,7 +22,7 @@
 
 ```bash
 git clone https://github.com/irumka/Software-development-tools
-cd geometric_lib
+cd Software-development-tools/
 ```
 
 ## Описание функций

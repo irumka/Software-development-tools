@@ -20,6 +20,12 @@ git clone https://github.com/irumka/Software-development-tools
 cd Software-development-tools/
 ```
 
+## Запуск тестов 
+
+```bash
+python -m unittest -v
+```
+
 ## Описание функций
 
 Во всех функциях значения имеют тип `float` (дробное число).

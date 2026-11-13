@@ -5,41 +5,55 @@ from circle import area, perimeter
 class CircleTestCase(unittest.TestCase):
 
     def test_area_zero(self):
-        res = area(0)
-        self.assertAlmostEqual(res, 0.0)
+        self.assertAlmostEqual(area(0), 0.0)
 
-    def test_area_radius_one(self):
-        res = area(1)
-        self.assertAlmostEqual(res, 3.141592653589793)
+    def test_area_unit_radius(self):
+        self.assertAlmostEqual(area(1), 3.141592653589793)
 
     def test_area_radius_two(self):
-        res = area(2)
-        self.assertAlmostEqual(res, 12.566370614359172)
+        self.assertAlmostEqual(area(2), 12.566370614359172)
 
     def test_area_radius_three(self):
-        res = area(3)
-        self.assertAlmostEqual(res, 28.274333882308138)
+        self.assertAlmostEqual(area(3), 28.274333882308138)
 
     def test_area_fractional_radius(self):
-        res = area(0.5)
-        self.assertAlmostEqual(res, 0.7853981633974483)
+        self.assertAlmostEqual(area(0.5), 0.7853981633974483)
+
+    def test_area_negative_radius(self):
+        with self.assertRaises(ValueError):
+            area(-1)
+
+    def test_area_string(self):
+        with self.assertRaises(TypeError):
+            area("5")
+
+    def test_area_none(self):
+        with self.assertRaises(TypeError):
+            area(None)
 
     def test_perimeter_zero(self):
-        res = perimeter(0)
-        self.assertAlmostEqual(res, 0.0)
+        self.assertAlmostEqual(perimeter(0), 0.0)
 
-    def test_perimeter_radius_one(self):
-        res = perimeter(1)
-        self.assertAlmostEqual(res, 6.283185307179586)
+    def test_perimeter_unit_radius(self):
+        self.assertAlmostEqual(perimeter(1), 6.283185307179586)
 
     def test_perimeter_radius_two(self):
-        res = perimeter(2)
-        self.assertAlmostEqual(res, 12.566370614359172)
+        self.assertAlmostEqual(perimeter(2), 12.566370614359172)
 
     def test_perimeter_radius_three(self):
-        res = perimeter(3)
-        self.assertAlmostEqual(res, 18.84955592153876)
+        self.assertAlmostEqual(perimeter(3), 18.84955592153876)
 
     def test_perimeter_fractional_radius(self):
-        res = perimeter(0.5)
-        self.assertAlmostEqual(res, 3.141592653589793)
+        self.assertAlmostEqual(perimeter(0.5), 3.141592653589793)
+
+    def test_perimeter_negative_radius(self):
+        with self.assertRaises(ValueError):
+            perimeter(-1)
+
+    def test_perimeter_string(self):
+        with self.assertRaises(TypeError):
+            perimeter("5")
+
+    def test_perimeter_none(self):
+        with self.assertRaises(TypeError):
+            perimeter(None)
